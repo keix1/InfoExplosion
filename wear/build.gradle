@@ -9,7 +9,7 @@ android {
     defaultConfig {
         applicationId "com.keix1.infoexplosion"
         minSdkVersion 23
-        targetSdkVersion 27
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
     }
@@ -19,10 +19,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    productFlavors {
+    }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation 'com.google.android.support:wearable:2.3.0'
     implementation 'com.google.android.gms:play-services-base:11.8.0'

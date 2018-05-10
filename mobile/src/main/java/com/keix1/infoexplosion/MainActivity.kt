@@ -26,22 +26,20 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         val CurrentToken = FirebaseInstanceId.getInstance().token
 
         //Push通知の購読開始
         FirebaseMessaging.getInstance().subscribeToTopic("mytopic")
 
-        var button : Button = findViewById(R.id.button) as Button
-        button.setOnClickListener { view ->
-
-        }
-
         var extras = intent.extras
         if(extras != null) {
             var value = extras.getString("data")
-            var uri = Uri.parse(value)
-            var i = Intent(Intent.ACTION_VIEW, uri)
-            startActivity(i)
+            if(value != null) {
+                var uri = Uri.parse(value)
+                var i = Intent(Intent.ACTION_VIEW, uri)
+                startActivity(i)
+            }
         }
 
 
